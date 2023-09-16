@@ -69,7 +69,7 @@ def loadBooks(catalog):
     referencia al libro que se esta procesando.
     """
     # TODO cambiar nombre del archivo (parte 1)
-    booksfile = cf.data_dir + "GoodReads/books-small.csv"
+    booksfile = cf.data_dir + "GoodReads/books.csv"
     input_file = csv.DictReader(open(booksfile, encoding="utf-8"))
     for book in input_file:
         # preprocesamiento de los datos para convertirlos al tipo correcto
@@ -86,7 +86,7 @@ def loadBooksTags(catalog):
     Carga la información que asocia tags con libros.
     """
     # TODO cambiar nombre del archivo (parte 1)
-    booktagsfile = cf.data_dir + "GoodReads/book_tags-small.csv"
+    booktagsfile = cf.data_dir + "GoodReads/book_tags.csv"
     input_file = csv.DictReader(open(booktagsfile, encoding="utf-8"))
     for booktag in input_file:
         model.addBookTag(catalog, booktag)
@@ -216,8 +216,7 @@ def getBooksAverageRating(control, recursive=True):
     # inicializa el tiempo de procesamiento
     star_time = getTime()
     # ejecuta el promedio en el modelo
-    avg = model.averageBookRatings(control["model"],
-                                   recursive=recursive)
+    avg = model.averageBookRatings(control["model"], recursive=recursive)
     end_time = getTime()
     # retorna el tiempo de procesamiento y el promedio
     delta_time = deltaTime(star_time, end_time)
