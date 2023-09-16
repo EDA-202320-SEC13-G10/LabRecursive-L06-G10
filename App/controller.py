@@ -216,8 +216,7 @@ def getBooksAverageRating(control, recursive=True):
     # inicializa el tiempo de procesamiento
     star_time = getTime()
     # ejecuta el promedio en el modelo
-    avg = model.averageBookRatings(control["model"],
-                                   recursive=recursive)
+    avg = model.averageBookRatings(control["model"], recursive=recursive)
     end_time = getTime()
     # retorna el tiempo de procesamiento y el promedio
     delta_time = deltaTime(star_time, end_time)
